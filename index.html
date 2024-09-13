@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>مولد الأرقام التسلسلية</title>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1>مولد الأرقام التسلسلية</h1>
+        <input type="number" id="startNumber" placeholder="أدخل الرقم التسلسلي الأول">
+        <input type="number" id="increment" placeholder="أدخل الرقم الذي تريد إضافته">
+        <button onclick="generateNumbers()">توليد الأرقام</button>
+        <textarea id="output" readonly></textarea>
+        <button onclick="copyToClipboard()">نسخ الأرقام</button>
+        <button onclick="saveToLocalStorage()">حفظ في التخزين المحلي</button>
+        <button onclick="loadFromLocalStorage()">تحميل من التخزين المحلي</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src=""></script>
+</body>
+</html>
