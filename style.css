@@ -46,4 +46,7 @@ textarea {
 .message {
     color: #28a745;
     margin-top: 10px;
-}
+}.Right{
+    transform: translateY(45rem);
+      text-align: center;
+  }
