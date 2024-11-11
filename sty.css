@@ -42,6 +42,10 @@ button:hover {
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+ .Right{
+    transform: translateY(45rem);
+      text-align: center;
+  }
 .error {
     background-color: #f8d7da;
     color: #721c24;
