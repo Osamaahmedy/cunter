@@ -1,52 +1,51 @@
-function generateNumbers() {
-    const startNumber = parseInt(document.getElementById('startNumber').value);
-    const increment = parseInt(document.getElementById('increment').value);
-    let output = '';
-    const message = document.getElementById('message');
+function addNumber() {
+    let sequence = document.getElementById('sequence').value;
+    let addNumber = document.getElementById('addNumber').value;
+    let messageDiv = document.getElementById('message');
 
-    if (isNaN(startNumber) || isNaN(increment)) {
-        message.style.color = 'red';
-        message.textContent = 'يرجى إدخال أرقام صحيحة.';
+    if (!sequence || !addNumber) {
+        showMessage("يرجى إدخال جميع القيم.", "error");
         return;
     }
 
-    message.textContent = '';
-    for (let i = 0; i < 10; i++) {
-        output += (startNumber + i * increment) + '\n';
-    }
+    try {
+        let bigIntSequence = BigInt(sequence);
+        let bigIntToAdd = BigInt(addNumber);
 
-    document.getElementById('output').value = output;
-    message.style.color = '#28a745';
-    message.textContent = 'تم توليد الأرقام بنجاح!';
+        let result = bigIntSequence + bigIntToAdd;
+
+        let output = '';
+        for (let i = bigIntSequence + BigInt(1); i <= result; i++) {
+            output += i.toString() + '\n';
+        }
+
+        document.getElementById('result').textContent = output;
+        showMessage("تم إنتاج الأرقام بنجاح!", "success");
+    } catch (error) {
+        showMessage("هناك خطأ في إدخال الأرقام.", "error");
+    }
 }
 
 function copyToClipboard() {
-    const output = document.getElementById('output');
-    output.select();
-    document.execCommand('copy');
-    const message = document.getElementById('message');
-    message.style.color = '#28a745';
-    message.textContent = 'تم نسخ الأرقام إلى الحافظة!';
-}
+    let resultDiv = document.getElementById('result');
+    let messageDiv = document.getElementById('message');
 
-function saveToLocalStorage() {
-    const output = document.getElementById('output').value;
-    localStorage.setItem('generatedNumbers', output);
-    const message = document.getElementById('message');
-    message.style.color = '#28a745';
-    message.textContent = 'تم حفظ الأرقام في التخزين المحلي!';
-}
-
-function loadFromLocalStorage() {
-    const output = localStorage.getItem('generatedNumbers');
-    if (output) {
-        document.getElementById('output').value = output;
-        const message = document.getElementById('message');
-        message.style.color = '#28a745';
-        message.textContent = 'تم تحميل الأرقام من التخزين المحلي!';
-    } else {
-        const message = document.getElementById('message');
-        message.style.color = 'red';
-        message.textContent = 'لا توجد بيانات محفوظة في التخزين المحلي!';
+    if (resultDiv.textContent.trim() === "") {
+        showMessage("لا توجد نتائج لنسخها.", "error");
+        return;
     }
+
+    navigator.clipboard.writeText(resultDiv.textContent)
+        .then(() => showMessage("تم نسخ النتائج!", "success"))
+        .catch(err => showMessage("حدث خطأ أثناء النسخ: " + err, "error"));
+}
+
+function showMessage(message, type) {
+    let messageDiv = document.getElementById('message');
+    messageDiv.textContent = message;
+    messageDiv.className = `message ${type}`;
+    messageDiv.style.display = 'block';
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 3000);
 }
