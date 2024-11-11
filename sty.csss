@@ -1,0 +1,49 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    direction: rtl;
+    background-color: #e9ecef;
+    color: #333;
+}
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#result {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+    border: 1px solid #ddd;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
