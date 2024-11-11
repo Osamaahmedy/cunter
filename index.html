@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
-    <title>مولد الأرقام التسلسلية</title>
-    
-    
+    <title>إضافة رقم إلى تسلسل طويل</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>مولد الأرقام التسلسلية</h1>
-        <input type="number" id="startNumber" placeholder="أدخل الرقم التسلسلي الأول">
-        <input type="number" id="increment" placeholder="أدخل الرقم الذي تريد إضافته">
-        <button onclick="generateNumbers()">توليد الأرقام</button>
-        <textarea id="output" readonly></textarea>
-        <button onclick="copyToClipboard()">نسخ الأرقام</button>
-        <button onclick="saveToLocalStorage()">حفظ في التخزين المحلي</button>
-        <button onclick="loadFromLocalStorage()">تحميل من التخزين المحلي</button>
-        <div id="message" class="message"></div>
-
-        <div class='Right'>
-            <h1>
-                   جميع الحقوق محفوظه الى
-            </h1>
-            <p> 2024 &copy; fullstack web Developer: OS SPHERE</p>
-          </div>
-    </div>
+    <h1>إضافة رقم إلى تسلسل طويل</h1>
+    <label for="sequence">أدخل التسلسل الطويل:</label>
+    <input type="text" id="sequence" placeholder="مثال: 9999999999999999996">
+    <br>
+    <label for="addNumber">أدخل الرقم للإضافة:</label>
+    <input type="text" id="addNumber" placeholder="مثال: 3">
+    <br>
+    <button onclick="addNumber()">إضافة</button>
+    <button onclick="copyToClipboard()">نسخ النتائج</button>
+    <h2>النتيجة:</h2>
+    <div id="result"></div>
+    <div id="message" class="message"></div>
 
     <script src="script.js"></script>
-   
 </body>
 </html>
